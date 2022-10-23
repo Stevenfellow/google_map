@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:google_map/google.dart';
 import 'package:google_map/googlemap.dart';
 import 'package:google_map/pages/index_page.dart';
 import 'package:hive/hive.dart';
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const IndexPage(),
+      // home: const IndexPage(),
+      home: MapView(),
     );
   }
 }
