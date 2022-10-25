@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
@@ -15,7 +13,6 @@ class _GoogleMappState extends State<GoogleMapp> {
   late GoogleMapController mapController;
   final Location _location = Location();
   final LatLng _center = const LatLng(0.347596, 32.582520);
-  LatLng _initialcameraposition = LatLng(0.347596, 32.582520);
 
   late double latitude;
 

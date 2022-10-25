@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_map/timed_event_utilities/habit_tile.dart';
 
 class TimedEventPage extends StatefulWidget {
@@ -34,7 +32,7 @@ class _TimedEventPageState extends State<TimedEventPage> {
 
     //keep the time going
     if (habitList[index][1]) {
-      Timer.periodic(Duration(seconds: 1), (timer) {
+      Timer.periodic(const Duration(seconds: 1), (timer) {
         setState(() {
           if (habitList[index][1] == false) {
             timer.cancel();
@@ -66,18 +64,18 @@ class _TimedEventPageState extends State<TimedEventPage> {
     return Scaffold(
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {},
-          label: Text('Add event'),
+          label: const Text('Add event'),
           backgroundColor: Colors.grey.shade900,
         ),
         backgroundColor: Colors.grey.shade600,
         appBar: AppBar(
           backgroundColor: Colors.grey.shade900,
-          title: Center(child: Text("TIMED EVENTS")),
+          title: const Center(child: Text("TIMED EVENTS")),
           leading: GestureDetector(
             onTap: () {
               Navigator.of(context).pop();
             },
-            child: Icon(Icons.arrow_back_ios),
+            child: const Icon(Icons.arrow_back_ios),
           ),
         ),
         body: ListView.builder(

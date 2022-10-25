@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_map/clock_pages/clock_homepage.dart';
 import 'package:google_map/googlemap.dart';
@@ -26,7 +25,7 @@ class _IndexPageState extends State<IndexPage> {
           padding: const EdgeInsets.all(20),
           color: const Color.fromARGB(255, 177, 5, 177),
           child: Row(
-            children: [],
+            children: const [],
           )),
       body: Column(
         children: [
@@ -44,7 +43,7 @@ class _IndexPageState extends State<IndexPage> {
                       gradient: const LinearGradient(
                           begin: Alignment.bottomLeft,
                           colors: [
-                            Color(0xffD88AB),
+                            Color(0x0ffd88ab),
                             Color.fromARGB(255, 223, 7, 212)
                           ])),
                 ),

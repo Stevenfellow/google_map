@@ -2,8 +2,6 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ClockView extends StatefulWidget {
   final double size;
@@ -17,6 +15,7 @@ class ClockView extends StatefulWidget {
 class _ClockViewState extends State<ClockView> {
   @override
   void initState() {
+    super.initState();
     Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {});
     });
@@ -24,7 +23,7 @@ class _ClockViewState extends State<ClockView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: widget.size,
         height: widget.size,
         child: Transform.rotate(

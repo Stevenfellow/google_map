@@ -1,10 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_map/clock_pages/alarmpage.dart';
-import 'package:google_map/notification.dart';
 import 'package:google_map/notify.dart';
 import 'package:google_map/pages/clock_view.dart';
 import 'package:google_map/pages/index_page.dart';

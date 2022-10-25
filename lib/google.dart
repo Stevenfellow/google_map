@@ -13,7 +13,8 @@ class MapView extends StatefulWidget {
 }
 
 class _MapViewState extends State<MapView> {
-  CameraPosition _initialLocation = CameraPosition(target: LatLng(0.0, 0.0));
+  CameraPosition _initialLocation =
+      const CameraPosition(target: LatLng(0.0, 0.0));
   late GoogleMapController mapController;
 
   late Position _currentPosition;
@@ -62,7 +63,7 @@ class _MapViewState extends State<MapView> {
           filled: true,
           fillColor: Colors.white,
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(10.0),
             ),
             borderSide: BorderSide(
@@ -71,7 +72,7 @@ class _MapViewState extends State<MapView> {
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(10.0),
             ),
             borderSide: BorderSide(
@@ -79,7 +80,7 @@ class _MapViewState extends State<MapView> {
               width: 2,
             ),
           ),
-          contentPadding: EdgeInsets.all(15),
+          contentPadding: const EdgeInsets.all(15),
           hintText: hint,
         ),
       ),
@@ -288,7 +289,7 @@ class _MapViewState extends State<MapView> {
       });
     }
 
-    PolylineId id = PolylineId('poly');
+    PolylineId id = const PolylineId('poly');
     Polyline polyline = Polyline(
       polylineId: id,
       color: Colors.red,
@@ -341,7 +342,7 @@ class _MapViewState extends State<MapView> {
                         color: Colors.blue.shade100, // button color
                         child: InkWell(
                           splashColor: Colors.blue, // inkwell color
-                          child: SizedBox(
+                          child: const SizedBox(
                             width: 50,
                             height: 50,
                             child: Icon(Icons.add),
@@ -354,13 +355,13 @@ class _MapViewState extends State<MapView> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     ClipOval(
                       child: Material(
                         color: Colors.blue.shade100, // button color
                         child: InkWell(
                           splashColor: Colors.blue, // inkwell color
-                          child: SizedBox(
+                          child: const SizedBox(
                             width: 50,
                             height: 50,
                             child: Icon(Icons.remove),
@@ -385,7 +386,7 @@ class _MapViewState extends State<MapView> {
                 child: Padding(
                   padding: const EdgeInsets.only(top: 10.0),
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.white70,
                       borderRadius: BorderRadius.all(
                         Radius.circular(20.0),
@@ -397,17 +398,17 @@ class _MapViewState extends State<MapView> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Text(
+                          const Text(
                             'Places',
                             style: TextStyle(fontSize: 20.0),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           _textField(
                               label: 'Start',
                               hint: 'Choose starting point',
-                              prefixIcon: Icon(Icons.looks_one),
+                              prefixIcon: const Icon(Icons.looks_one),
                               suffixIcon: IconButton(
-                                icon: Icon(Icons.my_location),
+                                icon: const Icon(Icons.my_location),
                                 onPressed: () {
                                   startAddressController.text = _currentAddress;
                                   _startAddress = _currentAddress;
@@ -421,11 +422,11 @@ class _MapViewState extends State<MapView> {
                                   _startAddress = value;
                                 });
                               }),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           _textField(
                               label: 'Destination',
                               hint: 'Choose destination',
-                              prefixIcon: Icon(Icons.looks_two),
+                              prefixIcon: const Icon(Icons.looks_two),
                               controller: destinationAddressController,
                               focusNode: desrinationAddressFocusNode,
                               width: width,
@@ -434,18 +435,18 @@ class _MapViewState extends State<MapView> {
                                   _destinationAddress = value;
                                 });
                               }),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Visibility(
                             visible: _placeDistance == null ? false : true,
                             child: Text(
                               'DISTANCE: $_placeDistance km',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           ElevatedButton(
                             onPressed: (_startAddress != '' &&
                                     _destinationAddress != '')
@@ -454,10 +455,12 @@ class _MapViewState extends State<MapView> {
                                     desrinationAddressFocusNode.unfocus();
                                     setState(() {
                                       if (markers.isNotEmpty) markers.clear();
-                                      if (polylines.isNotEmpty)
+                                      if (polylines.isNotEmpty) {
                                         polylines.clear();
-                                      if (polylineCoordinates.isNotEmpty)
+                                      }
+                                      if (polylineCoordinates.isNotEmpty) {
                                         polylineCoordinates.clear();
+                                      }
                                       _placeDistance = null;
                                     });
 
@@ -465,7 +468,7 @@ class _MapViewState extends State<MapView> {
                                       if (isCalculated) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
-                                          SnackBar(
+                                          const SnackBar(
                                             content: Text(
                                                 'Distance Calculated Sucessfully'),
                                           ),
@@ -473,7 +476,7 @@ class _MapViewState extends State<MapView> {
                                       } else {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
-                                          SnackBar(
+                                          const SnackBar(
                                             content: Text(
                                                 'Error Calculating Distance'),
                                           ),
@@ -486,14 +489,14 @@ class _MapViewState extends State<MapView> {
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 'Show Route'.toUpperCase(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 20.0,
                                 ),
                               ),
                             ),
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.red,
+                              backgroundColor: Colors.red,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
@@ -517,7 +520,7 @@ class _MapViewState extends State<MapView> {
                       color: Colors.orange.shade100, // button color
                       child: InkWell(
                         splashColor: Colors.orange, // inkwell color
-                        child: SizedBox(
+                        child: const SizedBox(
                           width: 56,
                           height: 56,
                           child: Icon(Icons.my_location),

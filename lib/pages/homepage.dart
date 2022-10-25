@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:google_map/components/habit_tile.dart';
 import 'package:google_map/components/new_habit_box.dart';
@@ -105,12 +103,12 @@ class _HomePageState extends State<HomePage> {
           onPressed: createNewhabit,
         ),
         appBar: AppBar(
-          title: Center(child: Text("HABIT LIST")),
+          title: const Center(child: Text("HABIT LIST")),
           leading: GestureDetector(
             onTap: () {
               Navigator.of(context).pop();
             },
-            child: Icon(Icons.arrow_back_ios),
+            child: const Icon(Icons.arrow_back_ios),
           ),
         ),
         body: ListView(
